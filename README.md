@@ -6,7 +6,7 @@ Windowsでのみ動作します。
 
 【使い方】
 
-1.「metaga_data_product.exe」を適当なフォルダにダウンロードします
+1.「metaga_data_product.zip」を適当なフォルダにダウンロードし、解凍します。中には「metaga_data_product.exe」というファイルが入っています。
 
 2.「http://chromedriver.chromium.org/downloads 」にアクセスし、最新の「chromedriver.exe」をダウンロードします。
 
