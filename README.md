@@ -14,9 +14,9 @@
 
 1.「metaga_data_product.zip」を適当なフォルダにダウンロードします。解凍すると「metaga_data_product.exe」というファイルが入っています。
 
-2.「http://chromedriver.chromium.org/downloads 」にアクセスし、最新の「chromedriver.exe」をダウンロードします。
+2.「https://chromedriver.storage.googleapis.com/index.html?path=2.46/」にアクセスし、「chromedriver_win32.zip」をダウンロードします。
 
-3.「chromedriver.exe」を「metaga_data_product.exe」と同じフォルダに配置します。
+3.「chromedriver_win32.zip」を解凍してできた「chromedriver.exe」を「metaga_data_product.exe」と同じフォルダに配置します。
 
 4.「metaga_data_product.exe」を実行します。URLの入力欄が表示されます。
 
