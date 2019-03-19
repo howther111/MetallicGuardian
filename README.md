@@ -14,7 +14,7 @@
 
 1.「metaga_data_product.zip」を適当なフォルダにダウンロードします。解凍すると「metaga_data_product.exe」というファイルが入っています。
 
-2.「https://chromedriver.storage.googleapis.com/index.html?path=2.46/」にアクセスし、「chromedriver_win32.zip」をダウンロードします。
+2.「https://chromedriver.storage.googleapis.com/index.html?path=2.46/ 」にアクセスし、「chromedriver_win32.zip」をダウンロードします。
 
 3.「chromedriver_win32.zip」を解凍してできた「chromedriver.exe」を「metaga_data_product.exe」と同じフォルダに配置します。
 
@@ -77,6 +77,7 @@
 -------------------------------------------------------------------------------------------
 
 【更新履歴】
+2019/3/19 ChromeDriverのバージョンによっては動かない不具合を発見。Ver2.46に固定。
 
 2019/1/25 メタガリモコンメーカーを追加。使い方はメタガデータプロダクトとほぼ同じです。
 
