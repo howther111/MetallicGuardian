@@ -12,7 +12,7 @@
 
 【メタガデータプロダクト使い方（メタガリモコンメーカーもほぼ同一です）】
 
-1.「metaga_data_product.zip」を適当なフォルダにダウンロードします。解凍すると「metaga_data_product.exe」というファイルが入っています。
+1.「metaga_data_product.exe」を適当なフォルダにダウンロードします。
 
 2.「https://chromedriver.storage.googleapis.com/index.html?path=76.0.3809.68/ 」にアクセスし、「chromedriver_win32.zip」をダウンロードします。
 
