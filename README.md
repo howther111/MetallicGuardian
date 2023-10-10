@@ -14,7 +14,7 @@
 
 1.「metaga_data_product.exe」を適当なフォルダにダウンロードします。
 
-2.「https://chromedriver.storage.googleapis.com/index.html 」にアクセスし、自分の使用しているChromeのバージョンと最初の部分の数値が一致した「chromedriver_win32.zip」をダウンロードします（chromeのバージョンはchrome://settings/help から確認できる。Google Chromeが78.0.3904.108ならChrome Driverは78.0.3904.70などでOK。chromeを持っていない場合はインストールすること）。
+2.「[https://chromedriver.storage.googleapis.com/index.html](https://chromedriver.chromium.org/downloads)」にアクセスし、自分の使用しているChromeのバージョンと最初の部分の数値が一致した「chromedriver_win32.zip」をダウンロードします（chromeのバージョンはchrome://settings/help から確認できる。Google Chromeが78.0.3904.108ならChrome Driverは78.0.3904.70などでOK。chromeを持っていない場合はインストールすること）。
 
 3.「chromedriver_win32.zip」を解凍してできた「chromedriver.exe」を「metaga_data_product.exe」と同じフォルダに配置します。
 
