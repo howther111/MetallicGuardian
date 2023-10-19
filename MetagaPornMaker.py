@@ -362,23 +362,23 @@ class GuardianData():
         jsontext["data"]["params"][11]["value"] = self.bllesing_bonus
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][12]["label"] = "命中"
+        jsontext["data"]["params"][12]["label"] = "命中値"
         jsontext["data"]["params"][12]["value"] = self.outfits_total_hit
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][13]["label"] = "回避"
+        jsontext["data"]["params"][13]["label"] = "回避値"
         jsontext["data"]["params"][13]["value"] = self.outfits_total_dodge
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][14]["label"] = "砲撃"
+        jsontext["data"]["params"][14]["label"] = "砲撃値"
         jsontext["data"]["params"][14]["value"] = self.outfits_total_magic
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][15]["label"] = "防壁"
+        jsontext["data"]["params"][15]["label"] = "防壁値"
         jsontext["data"]["params"][15]["value"] = self.outfits_total_countermagic
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][16]["label"] = "行動"
+        jsontext["data"]["params"][16]["label"] = "行動値"
         jsontext["data"]["params"][16]["value"] = self.outfits_total_action
 
         jsontext["data"]["params"].append({})
@@ -421,7 +421,11 @@ class GuardianData():
         jsontext["data"]["secret"] = "false"
         jsontext["data"]["invisible"] = "false"
         jsontext["data"]["hideStatus"] = "false"
-        jsontext["data"]["commands"] = "//能力値判定\nMG+{体力B}  体力判定\nMG+{反射B}  反射判定\nMG+{知覚B}  " \
+        jsontext["data"]["commands"] = "//防御、±0欄に修正を記入\nMG+{回避値}+0　近・回避、リアクション\n" \
+                                       "MG+{防壁値}+0　遠・防壁、リアクション\nC(XX-{}-0)　被ダメ―ジ、{}内に防御属性3文字\n" \
+                                       "C({FP}-YY)　残りFP\n\n" \
+                                       "//攻撃、+0欄に修正を記入\nMG+{命中値}+0　近・命中\nMG+{砲撃値}+0　遠・砲撃" + \
+                                       "\n\n//能力値判定\nMG+{体力B}  体力判定\nMG+{反射B}  反射判定\nMG+{知覚B}  " \
                                        "知覚判定\nMG+{理知B}  理知判定\nMG+{意志B}  意志判定\nMG+{幸運B}  幸運判定"
         jsontext["data"]["externalUrl"] = self.url
         file_name = self.guardian_name + "_ガーディアン駒データ.txt"
