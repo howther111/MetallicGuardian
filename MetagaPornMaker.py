@@ -312,27 +312,27 @@ class GuardianData():
 
         jsontext["data"]["params"] = []
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][0]["label"] = "体力"
+        jsontext["data"]["params"][0]["label"] = "体力B"
         jsontext["data"]["params"][0]["value"] = self.strong_bonus
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][1]["label"] = "反射"
+        jsontext["data"]["params"][1]["label"] = "反射B"
         jsontext["data"]["params"][1]["value"] = self.sense_bonus
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][2]["label"] = "知覚"
+        jsontext["data"]["params"][2]["label"] = "知覚B"
         jsontext["data"]["params"][2]["value"] = self.strong_bonus
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][3]["label"] = "理知"
+        jsontext["data"]["params"][3]["label"] = "理知B"
         jsontext["data"]["params"][3]["value"] = self.intellect_bonus
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][4]["label"] = "意志"
+        jsontext["data"]["params"][4]["label"] = "意志B"
         jsontext["data"]["params"][4]["value"] = self.will_bonus
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][5]["label"] = "幸運"
+        jsontext["data"]["params"][5]["label"] = "幸運B"
         jsontext["data"]["params"][5]["value"] = self.bllesing_bonus
 
         jsontext["data"]["params"].append({})
@@ -390,6 +390,30 @@ class GuardianData():
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][19]["label"] = "闇防御"
         jsontext["data"]["params"][19]["value"] = self.armourstotal_dark
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][20]["label"] = "体力基本値"
+        jsontext["data"]["params"][20]["value"] = self.strong_total
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][21]["label"] = "反射基本値"
+        jsontext["data"]["params"][21]["value"] = self.sense_total
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][22]["label"] = "知覚基本値"
+        jsontext["data"]["params"][22]["value"] = self.strong_total
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][23]["label"] = "理知基本値"
+        jsontext["data"]["params"][23]["value"] = self.intellect_total
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][24]["label"] = "意志基本値"
+        jsontext["data"]["params"][24]["value"] = self.will_total
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][25]["label"] = "幸運B"
+        jsontext["data"]["params"][25]["value"] = self.bllesing_bonus
 
         jsontext["data"]["active"] = "true"
         jsontext["data"]["secret"] = "false"
@@ -542,35 +566,60 @@ class CharacterData():
 
         jsontext["data"]["params"] = []
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][0]["label"] = "体力"
+        jsontext["data"]["params"][0]["label"] = "体力B"
         jsontext["data"]["params"][0]["value"] = self.strong_bonus
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][1]["label"] = "反射"
+        jsontext["data"]["params"][1]["label"] = "反射B"
         jsontext["data"]["params"][1]["value"] = self.sense_bonus
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][2]["label"] = "知覚"
+        jsontext["data"]["params"][2]["label"] = "知覚B"
         jsontext["data"]["params"][2]["value"] = self.strong_bonus
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][3]["label"] = "理知"
+        jsontext["data"]["params"][3]["label"] = "理知B"
         jsontext["data"]["params"][3]["value"] = self.intellect_bonus
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][4]["label"] = "意志"
+        jsontext["data"]["params"][4]["label"] = "意志B"
         jsontext["data"]["params"][4]["value"] = self.will_bonus
 
         jsontext["data"]["params"].append({})
-        jsontext["data"]["params"][5]["label"] = "幸運"
+        jsontext["data"]["params"][5]["label"] = "幸運B"
         jsontext["data"]["params"][5]["value"] = self.bllesing_bonus
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][6]["label"] = "体力基本値"
+        jsontext["data"]["params"][6]["value"] = self.strong_total
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][7]["label"] = "反射基本値"
+        jsontext["data"]["params"][7]["value"] = self.sense_total
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][8]["label"] = "知覚基本値"
+        jsontext["data"]["params"][8]["value"] = self.strong_total
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][9]["label"] = "理知基本値"
+        jsontext["data"]["params"][9]["value"] = self.intellect_total
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][10]["label"] = "意志基本値"
+        jsontext["data"]["params"][10]["value"] = self.will_total
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][11]["label"] = "幸運基本値"
+        jsontext["data"]["params"][11]["value"] = self.bllesing_total
 
         jsontext["data"]["active"] = "true"
         jsontext["data"]["secret"] = "false"
         jsontext["data"]["invisible"] = "false"
         jsontext["data"]["hideStatus"] = "false"
         jsontext["data"]["externalUrl"] = self.url
-        jsontext["data"]["commands"] = ""
+        jsontext["data"]["commands"] = "//能力値判定\nMG+{体力B}  体力判定\nMG+{反射B}  反射判定\nMG+{知覚B}  " \
+                                       "知覚判定\nMG+{理知B}  理知判定\nMG+{意志B}  意志判定\nMG+{幸運B}  幸運判定"
         file_name = self.character_name + "_キャラクター駒データ.txt"
 
         with open(file_name, 'w', encoding="utf-8") as file:  # 第二引数：writableオプションを指定
