@@ -202,22 +202,26 @@ class GuardianData():
         if self.specials_004 != "":
             text = text + "/" + self.specials_004
 
-        text = text + "\n[*]主近:" + self.outfits_main_weapon_shortname + \
-                " 射程:" + self.outfits_main_weapon_shortrange + \
-                " 代償:" + self.outfits_main_weapon_shortstrong + \
-                "\n攻撃力:" + self.outfits_main_weapon_shortattack
+        if self.outfits_main_weapon_shortname != "":
+            text = text + "\n[*]主近:" + self.outfits_main_weapon_shortname + \
+                   " 射程:" + self.outfits_main_weapon_shortrange + \
+                   " 代償:" + self.outfits_main_weapon_shortstrong + \
+                   "\n攻撃力:" + self.outfits_main_weapon_shortattack
 
-        text = text + "\n[*]副近:" + self.outfits_sub_weapon_shortname + \
-                " 射程:" + self.outfits_sub_weapon_shortrange + \
-                " 代償:" + self.outfits_sub_weapon_shortstrong + \
-                "\n攻撃力:" + self.outfits_sub_weapon_shortattack
+        if self.outfits_sub_weapon_shortname != "":
+            text = text + "\n[*]副近:" + self.outfits_sub_weapon_shortname + \
+                   " 射程:" + self.outfits_sub_weapon_shortrange + \
+                   " 代償:" + self.outfits_sub_weapon_shortstrong + \
+                   "\n攻撃力:" + self.outfits_sub_weapon_shortattack
 
-        text = text + "\n[*]主遠:" + self.outfits_main_weapon_longname + \
+        if self.outfits_main_weapon_longname != "":
+            text = text + "\n[*]主遠:" + self.outfits_main_weapon_longname + \
                    " 射程:" + self.outfits_main_weapon_longrange + \
                    " 代償:" + self.outfits_main_weapon_longstrong + \
                    "\n攻撃力:" + self.outfits_main_weapon_longattack
 
-        text = text + "\n[*]副遠:" + self.outfits_sub_weapon_longname + \
+        if self.outfits_sub_weapon_longname != "":
+            text = text + "\n[*]副遠:" + self.outfits_sub_weapon_longname + \
                    " 射程:" + self.outfits_sub_weapon_longrange + \
                    " 代償:" + self.outfits_sub_weapon_longstrong + \
                    "\n攻撃力:" + self.outfits_sub_weapon_longattack
@@ -426,27 +430,39 @@ class GuardianData():
         jsontext["data"]["secret"] = "false"
         jsontext["data"]["invisible"] = "false"
         jsontext["data"]["hideStatus"] = "false"
-        jsontext["data"]["commands"] = "//防御、+欄に修正を記入\nMG+{回避値}+0　近・回避、リアクション\n" \
+        commandText =                  "//防御、+欄に修正を記入\nMG+{回避値}+0　近・回避、リアクション\n" \
                                        "MG+{防壁値}+0　遠・防壁、リアクション\nC(XX-{}-0)　被ダメ―ジ、{}内に防御属性3文字\n" \
                                        "C({FP}-YY)　残りFP\n\n" \
-                                       "//攻撃、+0欄に修正を記入\nMG+{命中値}+0　近・命中\nMG+{砲撃値}+0　遠・砲撃" + \
-                                       "//ダメージ、+0欄に修正を記入\n" + \
-                                       "2d6+" + outfits_main_weapon_shortattack_array[1] + "+0　" + \
+                                       "//攻撃、+0欄に修正を記入\nMG+{命中値}+0　近・命中\nMG+{砲撃値}+0　遠・砲撃\n" + \
+                                       "//ダメージ、+0欄に修正を記入\n"
+
+        if self.outfits_main_weapon_shortname != "":
+            commandText = commandText + "2d6+" + outfits_main_weapon_shortattack_array[1] + "+0　" + \
                                        "〈" + outfits_main_weapon_shortattack_array[0] + "〉" + \
-                                       self.outfits_main_weapon_shortname + "ダメージ\n" \
-                                       "2d6+" + outfits_sub_weapon_shortattack_array[1] + "+0　" + \
+                                       self.outfits_main_weapon_shortname + "ダメージ\n"
+
+        if self.outfits_sub_weapon_shortname != "":
+            commandText = commandText + "2d6+" + outfits_sub_weapon_shortattack_array[1] + "+0　" + \
                                        "〈" + outfits_sub_weapon_shortattack_array[0] + "〉" + \
-                                       self.outfits_sub_weapon_shortname + "ダメージ\n" \
-                                       "2d6+" + outfits_main_weapon_longattack_array[1] + "+0　" + \
+                                       self.outfits_sub_weapon_shortname + "ダメージ\n"
+
+        if self.outfits_main_weapon_longname != "":
+            commandText = commandText + "2d6+" + outfits_main_weapon_longattack_array[1] + "+0　" + \
                                        "〈" + outfits_main_weapon_longattack_array[0] + "〉" + \
-                                       self.outfits_main_weapon_longname + "ダメージ\n" \
-                                       "2d6+" + outfits_sub_weapon_longattack_array[1] + "+0　" + \
+                                       self.outfits_main_weapon_longname + "ダメージ\n"
+
+        if self.outfits_sub_weapon_longname != "":
+            commandText = commandText + "2d6+" + outfits_sub_weapon_longattack_array[1] + "+0　" + \
                                        "〈" + outfits_sub_weapon_longattack_array[0] + "〉" + \
-                                       self.outfits_sub_weapon_longname + "ダメージ\n" \
-                                       "MG+{防壁値}+0　遠・防壁、リアクション\nC(XX-{}-0)　被ダメ―ジ、{}内に防御属性3文字\n" \
+                                       self.outfits_sub_weapon_longname + "ダメージ\n"
+
+        commandText = commandText + "MG+{防壁値}+0　遠・防壁、リアクション\nC(XX-{}-0)　被ダメ―ジ、{}内に防御属性3文字\n" \
                                        "C({FP}-YY)　残りFP\n\n" \
                                        "\n\n//能力値判定\nMG+{体力B}  体力判定\nMG+{反射B}  反射判定\nMG+{知覚B}  " \
                                        "知覚判定\nMG+{理知B}  理知判定\nMG+{意志B}  意志判定\nMG+{幸運B}  幸運判定"
+
+        jsontext["data"]["commands"] = commandText
+
         jsontext["data"]["externalUrl"] = self.url
         file_name = self.guardian_name + "_ガーディアン駒データ.txt"
 
