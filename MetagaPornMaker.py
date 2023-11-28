@@ -430,9 +430,9 @@ class GuardianData():
         jsontext["data"]["secret"] = "false"
         jsontext["data"]["invisible"] = "false"
         jsontext["data"]["hideStatus"] = "false"
-        commandText =                  "//防御、+欄に修正を記入\nMG+{回避値}+0　近・回避、リアクション\n" \
-                                       "MG+{防壁値}+0　遠・防壁、リアクション\nC(XX-{}-0)　被ダメ―ジ、{}内に防御属性3文字\n" \
-                                       "C({FP}-YY)　残りFP\nC({HP}-YY)　残りHP\nC({EN}-YY)　残りEN\n\n" \
+        commandText =                  "//リソース\nC({FP}-YY)　残りFP\nC({HP}-YY)　残りHP\nC({EN}-YY)　残りEN\n\n" + \
+                                       "//防御、+欄に修正を記入\nMG+{回避値}+0　近・回避、リアクション\n" + \
+                                       "MG+{防壁値}+0　遠・防壁、リアクション\nC(XX-{}-0)　被ダメ―ジ、{}内に防御属性3文字\n" + \
                                        "//攻撃、+0欄に修正を記入\nMG+{命中値}+0　近・命中\nMG+{砲撃値}+0　遠・砲撃\n" + \
                                        "//ダメージ、+0欄に修正を記入\n"
 
@@ -655,13 +655,46 @@ class CharacterData():
         jsontext["data"]["params"][11]["label"] = "幸運B"
         jsontext["data"]["params"][11]["value"] = self.bllesing_bonus
 
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][12]["label"] = "命中値"
+        jsontext["data"]["params"][12]["value"] = self.battlesubtotal_hit
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][13]["label"] = "回避値"
+        jsontext["data"]["params"][13]["value"] = self.battlesubtotal_dodge
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][14]["label"] = "砲撃値"
+        jsontext["data"]["params"][14]["value"] = self.battlesubtotal_magic
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][15]["label"] = "防壁値"
+        jsontext["data"]["params"][15]["value"] = self.battlesubtotal_countermagic
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][16]["label"] = "行動値"
+        jsontext["data"]["params"][16]["value"] = self.battlesubtotal_action
+
+        jsontext["data"]["params"].append({})
+        jsontext["data"]["params"][17]["label"] = "攻撃力"
+        jsontext["data"]["params"][17]["value"] = self.battlesubtotal_attack
+
         jsontext["data"]["active"] = "true"
         jsontext["data"]["secret"] = "false"
         jsontext["data"]["invisible"] = "false"
         jsontext["data"]["hideStatus"] = "false"
         jsontext["data"]["externalUrl"] = self.url
-        jsontext["data"]["commands"] = "//能力値判定\nMG+{体力B}  体力判定\nMG+{反射B}  反射判定\nMG+{知覚B}  " \
-                                       "知覚判定\nMG+{理知B}  理知判定\nMG+{意志B}  意志判定\nMG+{幸運B}  幸運判定"
+
+        commandText = "//リソース\nC({FP}-YY)　残りFP\nC({HP}-YY)　残りHP\nC({EN}-YY)　残りEN\n\n" + \
+                      "//防御、+欄に修正を記入\nMG+{回避値}+0　近・回避、リアクション\n" + \
+                      "MG+{防壁値}+0　遠・防壁、リアクション\nC(XX-{}-0)　被ダメ―ジ、{}内に防御属性3文字\n" + \
+                      "//攻撃、+0欄に修正を記入\nMG+{命中値}+0　近・命中\nMG+{砲撃値}+0　遠・砲撃\n"
+
+        commandText = commandText + "\n//能力値判定\nMG+{体力B}  体力判定\nMG+{反射B}  反射判定\nMG+{知覚B}  " \
+                                    "知覚判定\nMG+{理知B}  理知判定\nMG+{意志B}  意志判定\nMG+{幸運B}  幸運判定"
+
+        jsontext["data"]["commands"] = commandText
+
         file_name = self.character_name + "_キャラクター駒データ.txt"
 
         with open(file_name, 'w', encoding="utf-8") as file:  # 第二引数：writableオプションを指定
