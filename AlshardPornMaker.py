@@ -268,14 +268,12 @@ class GuardianData():
         jsontext["data"]["status"][3]["value"] = self.add_fortune_point
         jsontext["data"]["status"][3]["max"] = self.add_fortune_point
 
-        """
         jsontext["data"]["status"].append({})
         jsontext["data"]["status"][4]["label"] = "ブレイク"
         jsontext["data"]["status"][4]["value"] = 1
         jsontext["data"]["status"][4]["max"] = 1
-        """
 
-        i = 4
+        i = 5
         jsontext["data"]["status"].append({})
         jsontext["data"]["status"][i]["label"] = self.specials_000
         jsontext["data"]["status"][i]["value"] = 1
@@ -688,7 +686,7 @@ if __name__ == "__main__":
     root.geometry("400x150")
 
     # ラベル
-    Static1 = tkinter.Label(text=u'シートURL\nhttps://character-sheets.appspot.com/al2/')
+    Static1 = tkinter.Label(text=u'キャラクターシートURL\nhttps://character-sheets.appspot.com/al2/')
     Static1.pack()
 
     # エントリー
