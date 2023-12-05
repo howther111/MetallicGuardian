@@ -191,7 +191,7 @@ class GuardianData():
                    "【行動】" + str(self.outfits_total_action) + \
                    "\n【力場】" + str(self.outfits_total_fp) + \
                    "【耐久】" + str(self.outfits_total_hp) + \
-                   "【感応】" + str(self.outfits_total_en) + \
+                   "【感応】" + str(self.outfits_total_mp) + \
                    "【移動力】" + str(self.outfits_total_battlespeed_total)
 
         text = text + "\n加護:" + self.specials_000 + "/" + self.specials_001 + "/" + self.specials_002
@@ -426,11 +426,13 @@ class GuardianData():
         jsontext["data"]["secret"] = "false"
         jsontext["data"]["invisible"] = "false"
         jsontext["data"]["hideStatus"] = "false"
-        jsontext["data"]["commands"] = "//防御、+欄に修正を記入\nMG+{回避値}+0　近・回避、リアクション\n" \
-                                       "MG+{防壁値}+0　遠・防壁、リアクション\nC(XX-{}-0)　被ダメ―ジ、{}内に防御属性3文字\n" \
-                                       "C({FP}-YY)　残りFP\n\n" \
-                                       "//攻撃、+0欄に修正を記入\nMG+{命中値}+0　近・命中\nMG+{砲撃値}+0　遠・砲撃" + \
-                                       "//ダメージ、+0欄に修正を記入\n" + \
+        jsontext["data"]["commands"] = "//リソース\n" + \
+                                       "C({FP}-YY)　残りFP\n" + \
+                                       "C({HP}-YY)　残りHP\n" + \
+                                       "C({EN}-YY)　残りEN\n\n" + \
+                                       "//防御、+0欄に修正を記入\nMG+{回避値}+0　近・回避\n" \
+                                       "MG+{防壁値}+0　遠・防壁\nC(XX-{}-0)　被ダメージ、{}内に防御属性3文字\n\n" \
+                                       "//攻撃、+0欄に修正を記入\nMG+{命中値}+0　近・命中\nMG+{砲撃値}+0　遠・砲撃\n" + \
                                        "2d6+" + outfits_main_weapon_shortattack_array[1] + "+0　" + \
                                        "〈" + outfits_main_weapon_shortattack_array[0] + "〉" + \
                                        self.outfits_main_weapon_shortname + "ダメージ\n" \
@@ -443,9 +445,7 @@ class GuardianData():
                                        "2d6+" + outfits_sub_weapon_longattack_array[1] + "+0　" + \
                                        "〈" + outfits_sub_weapon_longattack_array[0] + "〉" + \
                                        self.outfits_sub_weapon_longname + "ダメージ\n" \
-                                       "MG+{防壁値}+0　遠・防壁、リアクション\nC(XX-{}-0)　被ダメ―ジ、{}内に防御属性3文字\n" \
-                                       "C({FP}-YY)　残りFP\n\n" \
-                                       "\n\n//能力値判定\nMG+{体力B}  体力判定\nMG+{反射B}  反射判定\nMG+{知覚B}  " \
+                                       "\n//能力値判定\nMG+{体力B}  体力判定\nMG+{反射B}  反射判定\nMG+{知覚B}  " \
                                        "知覚判定\nMG+{理知B}  理知判定\nMG+{意志B}  意志判定\nMG+{幸運B}  幸運判定"
         jsontext["data"]["externalUrl"] = self.url
         file_name = self.guardian_name + "_ガーディアン駒データ.txt"

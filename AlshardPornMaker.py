@@ -174,8 +174,7 @@ class GuardianData():
 
     def output_text(self):
         # 駒のテキストデータを出力する
-        text = "キャラクター:" + self.character_name + "\n" + \
-                   "PC:" + self.character_name +  \
+        text = "PC:" + self.character_name +  \
                    " PL:" + self.player_name + "\n" + \
                    "レベル:" + self.level
 
@@ -198,22 +197,22 @@ class GuardianData():
         if self.specials_004 != "":
             text = text + "/" + self.specials_004
 
-        text = text + "\n[*]主近:" + self.outfits_rightname + \
+        text = text + "\n[*]武右:" + self.outfits_rightname + \
                 " 射程:" + self.outfits_rightrange + \
                 " 代償:" + self.outfits_rightstrong + \
                 "\n攻撃力:" + self.outfits_rightattack
 
-        text = text + "\n[*]副近:" + self.outfits_leftname + \
+        text = text + "\n[*]武左:" + self.outfits_leftname + \
                 " 射程:" + self.outfits_leftrange + \
                 " 代償:" + self.outfits_leftstrong + \
                 "\n攻撃力:" + self.outfits_leftattack
 
-        text = text + "\n[*]主遠:" + self.outfits_magicrightname + \
+        text = text + "\n[*]魔右:" + self.outfits_magicrightname + \
                    " 射程:" + self.outfits_magicrightrange + \
                    " 代償:" + self.outfits_magicrightstrong + \
                    "\n攻撃力:" + self.outfits_magicrightattack
 
-        text = text + "\n[*]副遠:" + self.outfits_magicleftname + \
+        text = text + "\n[*]魔左:" + self.outfits_magicleftname + \
                    " 射程:" + self.outfits_magicleftrange + \
                    " 代償:" + self.outfits_magicleftstrong + \
                    "\n攻撃力:" + self.outfits_magicleftattack
@@ -422,11 +421,12 @@ class GuardianData():
         jsontext["data"]["secret"] = "false"
         jsontext["data"]["invisible"] = "false"
         jsontext["data"]["hideStatus"] = "false"
-        jsontext["data"]["commands"] = "//防御、+欄に修正を記入\nMG+{回避値}+0　近・回避、リアクション\n" \
-                                       "MG+{抗魔値}+0　遠・抗魔、リアクション\nC(XX-{}-0)　被ダメ―ジ、{}内に防御属性3文字\n" \
-                                       "C({FP}-YY)　残りFP\n\n" \
-                                       "//攻撃、+0欄に修正を記入\nMG+{命中値}+0　近・命中\nMG+{魔導値}+0　遠・魔導" + \
-                                       "//ダメージ、+0欄に修正を記入\n" + \
+        jsontext["data"]["commands"] = "//リソース\n" + \
+                                       "C({HP}-YY)　残りHP\n" + \
+                                       "C({MP}-YY)　残りMP\n\n" + \
+                                       "//防御、+0欄に修正を記入\nAL+{回避値}+0　近・回避\n" \
+                                       "AL+{抗魔値}+0　遠・抗魔\nC(XX-{}-0)　被ダメージ、{}内に防御属性3文字\n\n" \
+                                       "//攻撃、+0欄に修正を記入\nAL+{命中値}+0　近・命中\nAL+{魔導値}+0　遠・魔導\n" + \
                                        "2d6+" + outfits_rightattack_array[1] + "+0　" + \
                                        "〈" + outfits_rightattack_array[0] + "〉" + \
                                        self.outfits_rightname + "ダメージ\n" \
@@ -439,10 +439,8 @@ class GuardianData():
                                        "2d6+" + outfits_magicleftattack_array[1] + "+0　" + \
                                        "〈" + outfits_magicleftattack_array[0] + "〉" + \
                                        self.outfits_magicleftname + "ダメージ\n" \
-                                       "MG+{抗魔値}+0　遠・抗魔、リアクション\nC(XX-{}-0)　被ダメ―ジ、{}内に防御属性3文字\n" \
-                                       "C({FP}-YY)　残りFP\n\n" \
-                                       "\n\n//能力値判定\nMG+{体力B}  体力判定\nMG+{反射B}  反射判定\nMG+{知覚B}  " \
-                                       "知覚判定\nMG+{理知B}  理知判定\nMG+{意志B}  意志判定\nMG+{幸運B}  幸運判定"
+                                       "\n//能力値判定\nAL+{体力B}  体力判定\nAL+{反射B}  反射判定\nAL+{知覚B}  " \
+                                       "知覚判定\nAL+{理知B}  理知判定\nAL+{意志B}  意志判定\nAL+{幸運B}  幸運判定"
         jsontext["data"]["externalUrl"] = self.url
         file_name = self.character_name + "_キャラクター駒データ.txt"
 
