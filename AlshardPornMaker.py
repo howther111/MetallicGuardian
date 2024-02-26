@@ -74,6 +74,8 @@ class GuardianData():
     armourstotal_light = 0
     armourstotal_dark = 0
 
+    items = []
+
     break_flg = 0
 
     url = ""
@@ -170,6 +172,16 @@ class GuardianData():
         self.armourstotal_light = driver.find_element(by=By.ID, value="armourstotal.light").get_attribute("value")
         self.armourstotal_dark = driver.find_element(by=By.ID, value="armourstotal.dark").get_attribute("value")
 
+        self.items.append(driver.find_element(by=By.ID, value="items.0.name").get_attribute("value"))
+
+        for i in range(100):
+            try:
+                itemnum = i + 1
+                itemstr = "items." + str(itemnum).zfill(3) + ".name"
+                self.items.append(driver.find_element(by=By.ID, value=itemstr).get_attribute("value"))
+            except:
+                pass
+
         print(self.character_name)
 
     def output_text(self):
@@ -225,6 +237,10 @@ class GuardianData():
                 "/雷" + self.armourstotal_thunder + \
                 "/光" + self.armourstotal_light + \
                 "/闇" + self.armourstotal_dark
+
+        text = text + "\nアイテム:"
+        for item in self.items:
+            text = text + item + "/"
 
         print(text)
 
@@ -305,8 +321,14 @@ class GuardianData():
             jsontext["data"]["status"][i]["max"] = 1
             i = i + 1
 
-        jsontext["data"]["params"] = []
+        for item in self.items:
+            jsontext["data"]["status"].append({})
+            jsontext["data"]["status"][i]["label"] = item
+            jsontext["data"]["status"][i]["value"] = 1
+            jsontext["data"]["status"][i]["max"] = 1
+            i = i + 1
 
+        jsontext["data"]["params"] = []
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][0]["label"] = "体力基本値"
