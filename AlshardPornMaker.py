@@ -241,6 +241,7 @@ class GuardianData():
         text = text + "\nアイテム:"
         for item in self.items:
             text = text + item + "/"
+        text = text[:-1]
 
         print(text)
 
