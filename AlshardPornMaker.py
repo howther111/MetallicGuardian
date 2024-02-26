@@ -174,7 +174,7 @@ class GuardianData():
 
         self.items.append(driver.find_element(by=By.ID, value="items.0.name").get_attribute("value"))
 
-        for i in range(100):
+        for i in range(998):
             try:
                 itemnum = i + 1
                 itemstr = "items." + str(itemnum).zfill(3) + ".name"
