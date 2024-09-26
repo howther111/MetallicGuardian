@@ -130,12 +130,12 @@ class GuardianData():
         self.outfits_rightname = driver.find_element(by=By.ID, value="outfits.total.rightname").get_attribute("value")
         self.outfits_rightattack = driver.find_element(by=By.ID, value="outfits.total.rightattack").get_attribute("value")
         self.outfits_rightrange = driver.find_element(by=By.ID, value="outfits.total.rightrange").get_attribute("value")
-        self.outfits_rightstrong = driver.find_element(by=By.ID, value="outfits.total.rightcost").get_attribute("value")
+        self.outfits_rightstrong = driver.find_element(by=By.ID, value="outfits.right.0.cost").get_attribute("value")
 
         self.outfits_leftname = driver.find_element(by=By.ID, value="outfits.total.leftname").get_attribute("value")
         self.outfits_leftattack = driver.find_element(by=By.ID, value="outfits.total.leftattack").get_attribute("value")
         self.outfits_leftrange = driver.find_element(by=By.ID, value="outfits.total.leftrange").get_attribute("value")
-        self.outfits_leftstrong = driver.find_element(by=By.ID, value="outfits.total.leftcost").get_attribute("value")
+        self.outfits_leftstrong = driver.find_element(by=By.ID, value="outfits.left.0.cost").get_attribute("value")
 
         self.outfits_magicrightname = driver.find_element(by=By.ID,
                                                                 value="outfits.total.magicrightname").get_attribute(
@@ -147,7 +147,7 @@ class GuardianData():
                                                                  value="outfits.total.magicrightrange").get_attribute(
             "value")
         self.outfits_magicrightstrong = driver.find_element(by=By.ID,
-                                                                  value="outfits.total.magicrightcost").get_attribute(
+                                                                  value="outfits.magicright.0.cost").get_attribute(
             "value")
 
         self.outfits_magicleftname = driver.find_element(by=By.ID,
@@ -160,7 +160,7 @@ class GuardianData():
                                                                 value="outfits.total.magicleftrange").get_attribute(
             "value")
         self.outfits_magicleftstrong = driver.find_element(by=By.ID,
-                                                                 value="outfits.total.magicleftcost").get_attribute(
+                                                                 value="outfits.magicleft.0.cost").get_attribute(
             "value")
 
         self.armourstotal_slash = driver.find_element(by=By.ID, value="armourstotal.slash").get_attribute("value")
