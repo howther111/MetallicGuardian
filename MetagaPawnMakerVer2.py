@@ -513,6 +513,7 @@ class CharacterData():
     specials_003 = ""
     specials_004 = ""
     '''
+    specials = []
     add_fortune_point = 0
     battlesubtotal_hit = 0
     battlesubtotal_dodge = 0
