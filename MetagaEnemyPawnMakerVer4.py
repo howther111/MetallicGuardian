@@ -330,107 +330,107 @@ class GuardianData():
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][0]["label"] = "体力基本値"
-        jsontext["data"]["params"][0]["value"] = self.strong_total
+        jsontext["data"]["params"][0]["value"] = str(self.strong_total)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][1]["label"] = "反射基本値"
-        jsontext["data"]["params"][1]["value"] = self.sense_total
+        jsontext["data"]["params"][1]["value"] = str(self.sense_total)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][2]["label"] = "知覚基本値"
-        jsontext["data"]["params"][2]["value"] = self.strong_total
+        jsontext["data"]["params"][2]["value"] = str(self.strong_total)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][3]["label"] = "理知基本値"
-        jsontext["data"]["params"][3]["value"] = self.intellect_total
+        jsontext["data"]["params"][3]["value"] = str(self.intellect_total)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][4]["label"] = "意志基本値"
-        jsontext["data"]["params"][4]["value"] = self.will_total
+        jsontext["data"]["params"][4]["value"] = str(self.will_total)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][5]["label"] = "幸運基本値"
-        jsontext["data"]["params"][5]["value"] = self.bllesing_bonus
+        jsontext["data"]["params"][5]["value"] = str(self.bllesing_bonus)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][6]["label"] = "体力B"
-        jsontext["data"]["params"][6]["value"] = self.strong_bonus
+        jsontext["data"]["params"][6]["value"] = str(self.strong_bonus)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][7]["label"] = "反射B"
-        jsontext["data"]["params"][7]["value"] = self.sense_bonus
+        jsontext["data"]["params"][7]["value"] = str(self.sense_bonus)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][8]["label"] = "知覚B"
-        jsontext["data"]["params"][8]["value"] = self.strong_bonus
+        jsontext["data"]["params"][8]["value"] = str(self.strong_bonus)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][9]["label"] = "理知B"
-        jsontext["data"]["params"][9]["value"] = self.intellect_bonus
+        jsontext["data"]["params"][9]["value"] = str(self.intellect_bonus)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][10]["label"] = "意志B"
-        jsontext["data"]["params"][10]["value"] = self.will_bonus
+        jsontext["data"]["params"][10]["value"] = str(self.will_bonus)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][11]["label"] = "幸運B"
-        jsontext["data"]["params"][11]["value"] = self.bllesing_bonus
+        jsontext["data"]["params"][11]["value"] = str(self.bllesing_bonus)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][12]["label"] = "命中値"
-        jsontext["data"]["params"][12]["value"] = self.outfits_total_hit
+        jsontext["data"]["params"][12]["value"] = str(self.outfits_total_hit)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][13]["label"] = "回避値"
-        jsontext["data"]["params"][13]["value"] = self.outfits_total_dodge
+        jsontext["data"]["params"][13]["value"] = str(self.outfits_total_dodge)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][14]["label"] = "砲撃値"
-        jsontext["data"]["params"][14]["value"] = self.outfits_total_magic
+        jsontext["data"]["params"][14]["value"] = str(self.outfits_total_magic)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][15]["label"] = "防壁値"
-        jsontext["data"]["params"][15]["value"] = self.outfits_total_countermagic
+        jsontext["data"]["params"][15]["value"] = str(self.outfits_total_countermagic)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][16]["label"] = "行動値"
-        jsontext["data"]["params"][16]["value"] = self.outfits_total_action
+        jsontext["data"]["params"][16]["value"] = str(self.outfits_total_action)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][17]["label"] = "移動力"
-        jsontext["data"]["params"][17]["value"] = self.outfits_total_battlespeed_total
+        jsontext["data"]["params"][17]["value"] = str(self.outfits_total_battlespeed_total)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][18]["label"] = "斬防御"
-        jsontext["data"]["params"][18]["value"] = self.armourstotal_slash
+        jsontext["data"]["params"][18]["value"] = str(self.armourstotal_slash)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][19]["label"] = "刺防御"
-        jsontext["data"]["params"][19]["value"] = self.armourstotal_pierce
+        jsontext["data"]["params"][19]["value"] = str(self.armourstotal_pierce)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][20]["label"] = "殴防御"
-        jsontext["data"]["params"][20]["value"] = self.armourstotal_crash
+        jsontext["data"]["params"][20]["value"] = str(self.armourstotal_crash)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][21]["label"] = "炎防御"
-        jsontext["data"]["params"][21]["value"] = self.armourstotal_fire
+        jsontext["data"]["params"][21]["value"] = str(self.armourstotal_fire)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][22]["label"] = "氷防御"
-        jsontext["data"]["params"][22]["value"] = self.armourstotal_ice
+        jsontext["data"]["params"][22]["value"] = str(self.armourstotal_ice)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][23]["label"] = "雷防御"
-        jsontext["data"]["params"][23]["value"] = self.armourstotal_thunder
+        jsontext["data"]["params"][23]["value"] = str(self.armourstotal_thunder)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][24]["label"] = "光防御"
-        jsontext["data"]["params"][24]["value"] = self.armourstotal_light
+        jsontext["data"]["params"][24]["value"] = str(self.armourstotal_light)
 
         jsontext["data"]["params"].append({})
         jsontext["data"]["params"][25]["label"] = "闇防御"
-        jsontext["data"]["params"][25]["value"] = self.armourstotal_dark
+        jsontext["data"]["params"][25]["value"] = str(self.armourstotal_dark)
 
         outfits_main_weapon_shortattack_array = self.outfits_main_weapon_shortattack.split("+")
         outfits_sub_weapon_shortattack_array = self.outfits_sub_weapon_shortattack.split("+")
