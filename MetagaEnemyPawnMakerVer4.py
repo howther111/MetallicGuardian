@@ -90,7 +90,7 @@ class GuardianData():
     def input_data(self, level=5, guardian_type="ソロ", guardian_class="ミーレス（カバリエ）"):
         self.guardian_type = guardian_type
         self.guardian_class = guardian_class
-        self.url = "URL"
+        self.url = "https://elaunomitsugi.booth.pm/items/6432109"
 
         if guardian_class == "奈落獣":
             self.character_name = "奈落獣" + CreatePilotName.CreatePilotName()
