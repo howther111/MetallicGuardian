@@ -88,6 +88,8 @@ class GuardianData():
     url = ""
 
     def input_data(self, level=5, guardian_type="ソロ", guardian_class="ミーレス（カバリエ）"):
+        self.guardian_type = guardian_type
+        self.guardian_class = guardian_class
         self.url = "URL"
 
         if guardian_class == "奈落獣":
