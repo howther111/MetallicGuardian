@@ -479,7 +479,7 @@ class GuardianData():
         print("ガーディアン駒データを生成しました")
 
     def output_prompt_guardian(self, image_type="人型ロボット"):
-        text = "文字を描くことなく、以下の特徴を持つ" + image_type + "のイラストを描いてください。 " + \
+        text = "文字を描くことなく、以下の特徴を持つ" + image_type + "の全身像を描いてください。 " + \
         "背景：白 カラーリング：自由 " + \
         "右腕武装：" + self.outfits_main_weapon_shortname + " " + \
         "左腕武装：" + self.outfits_sub_weapon_shortname + " " + \
