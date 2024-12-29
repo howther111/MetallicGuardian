@@ -22,8 +22,10 @@ class GuardianData():
     guardian_type = ""
     guardian_type_list = ["モブ", "ソロ", "強敵"]
     guardian_class = ""
-    guardian_class_list = ["奈落獣", "艦船", "ミーレス（カバリエ）"
-        , "アビスミーレス（カバリエ）", "ガーディアン（カバリエ）", "アビスガーディアン（カバリエ）"]
+    guardian_class_list = ["奈落獣", "艦船", "ミーレス（マシンザウルス）", "アビスミーレス（マシンザウルス）",
+                           "ガーディアン（マシンザウルス）", "アビスガーディアン（マシンザウルス）",
+                           "ミーレス（カバリエ）", "アビスミーレス（カバリエ）",
+                           "ガーディアン（カバリエ）", "アビスガーディアン（カバリエ）"]
     level = 0
     guardian_size = ""
     player_name = ""
@@ -99,6 +101,9 @@ class GuardianData():
             ship_list = ["駆逐艦", "巡洋艦", "軽巡洋艦", "重巡洋艦", "戦艦", "空母", "強襲揚陸艦"]
             self.character_name = CreatePilotName.CreatePilotName() + "・" + CreatePilotName.CreatePilotName()
             self.guardian_name = ship_list[random.randint(0, len(ship_list) - 1)] + CreatePetName.CreatePetName()
+        elif guardian_class == "ミーレス（マシンザウルス）" or guardian_class == "ガーディアン（マシンザウルス）" or guardian_class == "アビスミーレス（マシンザウルス）"or guardian_class == "アビスガーディアン（マシンザウルス）":
+            self.character_name = CreatePilotName.CreatePilotName() + "・" + CreatePilotName.CreatePilotName()
+            self.guardian_name = "機械恐竜" + CreatePilotName.CreatePilotName()
         else:
             self.character_name = CreatePilotName.CreatePilotName() + "・" + CreatePilotName.CreatePilotName()
             self.guardian_name = CreateMachineNumber.CreateMachineNumber() + " " + CreatePetName.CreatePetName()
@@ -121,9 +126,9 @@ class GuardianData():
         self.bllesing_bonus = int(self.bllesing_total / 3)
 
         special_num = 0
-        if guardian_class == "ガーディアン（カバリエ）":
+        if guardian_class == "ガーディアン（カバリエ）" or guardian_class == "ガーディアン（マシンザウルス）":
             special_num = 3
-        elif guardian_class == "アビスガーディアン（カバリエ）":
+        elif guardian_class == "アビスガーディアン（カバリエ）" or guardian_class == "アビスガーディアン（マシンザウルス）":
             special_num = max(3, (random.randint(0, self.level) * 2) - random.randint(0, self.level))
 
         if special_num > 0:
@@ -495,6 +500,8 @@ def get_data(level=3, guardian_type="ソロ", guardian_class="ミーレス（カ
         guardian.output_prompt_guardian(image_type="怪獣")
     elif guardian_class == "艦船":
         guardian.output_prompt_guardian(image_type="宇宙戦艦")
+    elif guardian_class == "ミーレス（マシンザウルス）" or guardian_class == "アビスミーレス（マシンザウルス）" or guardian_class == "ガーディアン（マシンザウルス）" or guardian_class == "アビスガーディアン（マシンザウルス）":
+        guardian.output_prompt_guardian(image_type="機械恐竜")
     else:
         guardian.output_prompt_guardian(image_type="モビルスーツ")
 
@@ -557,7 +564,11 @@ if __name__ == "__main__":
     Static3.pack()
 
     # エントリー
-    ComboBox2 = ttk.Combobox(frame6, width=25, values=["奈落獣", "艦船", "ミーレス（カバリエ）", "アビスミーレス（カバリエ）", "ガーディアン（カバリエ）", "アビスガーディアン（カバリエ）"])
+    ComboBox2 = ttk.Combobox(frame6, width=25, values=["奈落獣", "艦船", "ミーレス（マシンザウルス）",
+                                                       "アビスミーレス（マシンザウルス）", "ガーディアン（マシンザウルス）",
+                                                       "アビスガーディアン（マシンザウルス）", "ミーレス（カバリエ）",
+                                                       "アビスミーレス（カバリエ）", "ガーディアン（カバリエ）",
+                                                       "アビスガーディアン（カバリエ）"])
     ComboBox2.pack()
 
     Button1 = tkinter.Button(frame7, text=u'生成', command=lambda: [get_data(int(EditBox.get()), ComboBox1.get(), ComboBox2.get())])
