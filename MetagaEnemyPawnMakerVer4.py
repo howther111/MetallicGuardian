@@ -111,6 +111,9 @@ class GuardianData():
         self.guardian_type = guardian_type
         self.level = level
         self.guardian_size = self.size_list[random.randint(0, len(self.size_list) - 1)]
+        if guardian_class == "艦船":
+            self.guardian_size = "XL"
+
         self.player_name = "エネミー"
         self.strong_total = 3 + max(0, random.randint(0,6) + random.randint(0, self.level))
         self.strong_bonus = int(self.strong_total / 3)
