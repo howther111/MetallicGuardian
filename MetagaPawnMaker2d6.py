@@ -322,14 +322,14 @@ class GuardianData():
                 "/光" + self.armourstotal_light + \
                 "/闇" + self.armourstotal_dark
 
-        #text = text + "\nアイテム:"
-        #for item in self.items:
-        #    text = text + item + "/"
-        #text = text[:-1]
+        text = text + "\nアイテム:"
+        for item in self.items:
+            text = text + item + "/"
+        text = text[:-1]
 
         print(text)
 
-        file_name = self.guardian_name.replace("/", "_").replace("\"", "”") + "_ガーディアンテキストデータ.txt"
+        file_name = self.guardian_name + "_ガーディアンテキストデータ.txt"
 
         f = open(file_name, 'w', encoding="utf-8")
         f.write(text)
@@ -383,50 +383,10 @@ class GuardianData():
             i = i + 1
 
         for item in self.items:
-            itemnum = item.split("*")
-            if len(itemnum) > 1:
-                jsontext["data"]["status"].append({})
-                jsontext["data"]["status"][i]["label"] = itemnum[0]
-                jsontext["data"]["status"][i]["value"] = itemnum[1]
-                jsontext["data"]["status"][i]["max"] = itemnum[1]
-            else:
-                jsontext["data"]["status"].append({})
-                jsontext["data"]["status"][i]["label"] = item
-                jsontext["data"]["status"][i]["value"] = 1
-                jsontext["data"]["status"][i]["max"] = 1
-
-            i = i + 1
-
-        if "/" in self.outfits_main_weapon_shortstrong:
-            mws_ammo = self.outfits_main_weapon_shortstrong.split("/")
             jsontext["data"]["status"].append({})
-            jsontext["data"]["status"][i]["label"] = self.outfits_main_weapon_shortname + "弾数"
-            jsontext["data"]["status"][i]["value"] = mws_ammo[1]
-            jsontext["data"]["status"][i]["max"] = mws_ammo[1]
-            i = i + 1
-
-        if "/" in self.outfits_sub_weapon_shortstrong:
-            sws_ammo = self.outfits_sub_weapon_shortstrong.split("/")
-            jsontext["data"]["status"].append({})
-            jsontext["data"]["status"][i]["label"] = self.outfits_sub_weapon_shortname + "弾数"
-            jsontext["data"]["status"][i]["value"] = sws_ammo[1]
-            jsontext["data"]["status"][i]["max"] = sws_ammo[1]
-            i = i + 1
-
-        if "/" in self.outfits_main_weapon_longstrong:
-            mwl_ammo = self.outfits_main_weapon_longstrong.split("/")
-            jsontext["data"]["status"].append({})
-            jsontext["data"]["status"][i]["label"] = self.outfits_main_weapon_longname + "弾数"
-            jsontext["data"]["status"][i]["value"] = mwl_ammo[1]
-            jsontext["data"]["status"][i]["max"] = mwl_ammo[1]
-            i = i + 1
-
-        if "/" in self.outfits_sub_weapon_longstrong:
-            swl_ammo = self.outfits_sub_weapon_longstrong.split("/")
-            jsontext["data"]["status"].append({})
-            jsontext["data"]["status"][i]["label"] = self.outfits_sub_weapon_longname + "弾数"
-            jsontext["data"]["status"][i]["value"] = swl_ammo[1]
-            jsontext["data"]["status"][i]["max"] = swl_ammo[1]
+            jsontext["data"]["status"][i]["label"] = item
+            jsontext["data"]["status"][i]["value"] = 1
+            jsontext["data"]["status"][i]["max"] = 1
             i = i + 1
 
         jsontext["data"]["params"] = []
@@ -544,13 +504,13 @@ class GuardianData():
         jsontext["data"]["secret"] = "false"
         jsontext["data"]["invisible"] = "false"
         jsontext["data"]["hideStatus"] = "false"
-        command = "//アクション\nムーブ:\nマイナー:\nメジャー:\n\n//リソース\n" + \
+        command = "//アクション\nムーブ:\nマイナー:\nメジャー:\n//リソース\n" + \
                                        "C({FP}-YY)　残りFP\n" + \
                                        "C({HP}-YY)　残りHP\n" + \
                                        "C({EN}-YY)　残りEN\n\n" + \
-                                       "//防御、+0欄に修正を記入\nMG+{回避値}+0　近・回避\n" \
-                                       "MG+{防壁値}+0　遠・防壁\nC(XX-{}-0)　被ダメージ、{}内に防御属性3文字\n\n" \
-                                       "//攻撃、+0欄に修正を記入\nMG+{命中値}+0　近・命中\nMG+{砲撃値}+0　遠・砲撃\n" + \
+                                       "//防御、+0欄に修正を記入\n2d6+{回避値}+0　近・回避\n" \
+                                       "2d6+{防壁値}+0　遠・防壁\nC(XX-{}-0)　被ダメージ、{}内に防御属性3文字\n\n" \
+                                       "//攻撃、+0欄に修正を記入\n2d6+{命中値}+0　近・命中\n2d6+{砲撃値}+0　遠・砲撃\n" + \
                                        "2d6+" + outfits_main_weapon_shortattack_array[1] + "+0　" + \
                                        "〈" + outfits_main_weapon_shortattack_array[0] + "〉" + \
                                        self.outfits_main_weapon_shortname + "ダメージ\n" \
@@ -563,9 +523,9 @@ class GuardianData():
                                        "2d6+" + outfits_sub_weapon_longattack_array[1] + "+0　" + \
                                        "〈" + outfits_sub_weapon_longattack_array[0] + "〉" + \
                                        self.outfits_sub_weapon_longname + "ダメージ\n" \
-                                       "\n//能力値判定\nMG+{体力B}  体力判定\nMG+{反射B}  反射判定\nMG+{知覚B}  " \
-                                       "知覚判定\nMG+{理知B}  理知判定\nMG+{意志B}  意志判定\nMG+{幸運B}  幸運判定"
-        command = command + "\n\n//特技"
+                                       "\n//能力値判定\n2d6+{体力B}  体力判定\n2d6+{反射B}  反射判定\n2d6+{知覚B}  " \
+                                       "知覚判定\n2d6+{理知B}  理知判定\n2d6+{意志B}  意志判定\n2d6+{幸運B}  幸運判定"
+        command = command + "\n//特技"
         for i in range(len(self.skill_memo)):
             if not self.skill_name[i] == "":
                 command = command + "\n特技名:" + self.skill_name[i].replace("\n", "") + "/クラス:" + self.skill_class[i] + \
@@ -573,21 +533,19 @@ class GuardianData():
                           self.skill_timing[i] + "/対象:" + self.skill_target[i] + "/射程:" + self.skill_range[i] + \
                           "/代償:" +  self.skill_cost[i] + "/備考:" + self.skill_memo[i].replace("\n", "")
 
-        command = command + "\n\n//加護"
+        command = command + "\n//加護"
         for i in range(len(self.specials)):
             if not self.specials[i] == "":
                 command = command + "\n加護名:" + self.specials[i].replace("\n", "") + "/効果:" + self.specials_effect[i].replace("\n", "")
 
-        command = command + "\n\n//アイテム"
+        command = command + "\n//アイテム"
         for i in range(len(self.items)):
-            if (not self.items[i] == "") and (not self.items_effect[i] == "特技") and (not self.items_effect[i] == "非アイテム"):
-                itemstr = self.items[i].split("*")
-                command = command + "\nアイテム名:" + itemstr[0].replace("\n", "") + "/効果:" + self.items_effect[
-                    i].replace("\n", "")
+            if not self.items[i] == "":
+                command = command + "\nアイテム名:" + self.items[i].replace("\n", "") + "/効果:" + self.items_effect[i].replace("\n", "")
 
         jsontext["data"]["commands"] = command
         jsontext["data"]["externalUrl"] = self.url
-        file_name = self.guardian_name.replace("/", "_").replace("\"", "”") + "_ガーディアン駒データ.txt"
+        file_name = self.guardian_name + "_ガーディアン駒データ.txt"
 
         with open(file_name, 'w', encoding="utf-8") as file:  # 第二引数：writableオプションを指定
             json.dump(jsontext, file, ensure_ascii=False)
@@ -683,13 +641,13 @@ class CharacterData():
 
         print(text)
 
-        file_name = self.character_name.replace("/", "_").replace("\"", "”") + "_リンケージテキストデータ.txt"
+        file_name = self.character_name + "_キャラクターテキストデータ.txt"
 
         f = open(file_name, 'w', encoding="utf-8")
         f.write(text)
         f.close()
 
-        print("リンケージテキストデータを生成しました")
+        print("キャラクターテキストデータを生成しました")
         self.output_pawn(text)
         #tkinter.messagebox.showinfo(title="完了", message="駒データを生成しました")
 
@@ -773,14 +731,14 @@ class CharacterData():
         jsontext["data"]["invisible"] = "false"
         jsontext["data"]["hideStatus"] = "false"
         jsontext["data"]["externalUrl"] = self.url
-        jsontext["data"]["commands"] = "//能力値判定\nMG+{体力B}  体力判定\nMG+{反射B}  反射判定\nMG+{知覚B}  " \
-                                       "知覚判定\nMG+{理知B}  理知判定\nMG+{意志B}  意志判定\nMG+{幸運B}  幸運判定"
-        file_name = self.character_name.replace("/", "_").replace("\"", "”") + "_リンケージ駒データ.txt"
+        jsontext["data"]["commands"] = "//能力値判定\n2d6+{体力B}  体力判定\n2d6+{反射B}  反射判定\n2d6+{知覚B}  " \
+                                       "知覚判定\n2d6+{理知B}  理知判定\n2d6+{意志B}  意志判定\n2d6+{幸運B}  幸運判定"
+        file_name = self.character_name + "_キャラクター駒データ.txt"
 
         with open(file_name, 'w', encoding="utf-8") as file:  # 第二引数：writableオプションを指定
             json.dump(jsontext, file, ensure_ascii=False)
 
-        print("リンケージ駒データを生成しました")
+        print("キャラクター駒データを生成しました")
 
 
 def get_data(value):
